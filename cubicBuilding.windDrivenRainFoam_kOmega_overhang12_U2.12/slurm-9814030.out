@@ -1,0 +1,680 @@
+Unloading StdEnv/2020
+
+The following have been reloaded with a version change:
+  1) gcccore/.9.3.0 => gcccore/.7.3.0     3) openmpi/4.0.3 => openmpi/3.1.4
+  2) mii/1.1.2 => mii/1.1.1
+
+/cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/MPI/gcc7.3/openmpi3.1/openfoam/7/OpenFOAM-7/etc/config.sh/paraview: line 102: [: too many arguments
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 7
+Exec   : changeDictionary
+Date   : Aug 16 2023
+Time   : 14:55:06
+Host   : "cdr1435.int.cedar.computecanada.ca"
+PID    : 223800
+I/O    : uncollated
+Case   : /scratch/payamghp/cubicBuilding.windDrivenRainFoam_kOmega_overhang12_U2.12
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+--> FOAM Warning : 
+changeDictionary has been superseded by foamDictionary and is now deprecated.
+
+Create time
+
+Create mesh for time = 0
+
+Read dictionary changeDictionaryDict with replacements for dictionaries 
+5
+(
+boundary
+U
+k
+epsilon
+nut
+)
+
+Reading polyMesh/boundary file to extract patch names
+Loaded dictionary boundary with entries 
+8
+(
+overhang
+sides
+top
+inlet
+outlet
+ground
+cube
+windward
+)
+
+Extracted patch groups:
+    group slip with patches 
+2
+(
+sides
+top
+)
+
+    group wall with patches 
+4
+(
+overhang
+ground
+cube
+windward
+)
+
+Replacing entries in dictionary boundary
+Special handling of boundary as polyMesh/boundary file.
+Merging entries from 
+2
+(
+inlet
+top
+)
+
+fieldDict:
+{
+    overhang
+    {
+        type            wall;
+        inGroups        List<word> 0();
+        nFaces          542;
+        startFace       15582207;
+    }
+    sides
+    {
+        type            slip;
+        inGroups        List<word> 0();
+        nFaces          48556;
+        startFace       15582749;
+    }
+    top
+    {
+        type            mappedPatch;
+        inGroups        List<word> 0();
+        nFaces          45173;
+        startFace       15631305;
+        sampleMode      nearestCell;
+        sampleRegion    region0;
+        samplePatch     none;
+        offsetMode      uniform;
+        offset          ( 0 -1 0 );
+    }
+    inlet
+    {
+        type            mappedPatch;
+        nFaces          27694;
+        startFace       15676478;
+        sampleMode      nearestCell;
+        sampleRegion    region0;
+        samplePatch     none;
+        offsetMode      uniform;
+        offset          ( 1 0 0 );
+    }
+    outlet
+    {
+        type            patch;
+        nFaces          27694;
+        startFace       15704172;
+    }
+    ground
+    {
+        type            wall;
+        inGroups        List<word> 0();
+        nFaces          39178;
+        startFace       15731866;
+    }
+    cube
+    {
+        type            wall;
+        inGroups        List<word> 0();
+        nFaces          17253;
+        startFace       15771044;
+    }
+    windward
+    {
+        type            wall;
+        inGroups        List<word> 0();
+        nFaces          4936;
+        startFace       15788297;
+    }
+}
+
+Writing modified boundary
+Replacing entries in dictionary U
+Loading dictionary U
+Loaded dictionary U with entries 
+3
+(
+dimensions
+internalField
+boundaryField
+)
+
+Merging entries from 1(boundaryField)
+Writing modified fieldDict U
+Replacing entries in dictionary k
+Loading dictionary k
+Loaded dictionary k with entries 
+3
+(
+dimensions
+internalField
+boundaryField
+)
+
+Merging entries from 1(boundaryField)
+Writing modified fieldDict k
+Replacing entries in dictionary epsilon
+Loading dictionary epsilon
+
+
+--> FOAM FATAL ERROR: 
+cannot find file "/scratch/payamghp/cubicBuilding.windDrivenRainFoam_kOmega_overhang12_U2.12/0/epsilon"
+
+    From function virtual Foam::autoPtr<Foam::ISstream> Foam::fileOperations::uncollatedFileOperation::readStream(Foam::regIOobject&, const Foam::fileName&, const Foam::word&, bool) const
+    in file global/fileOperations/uncollatedFileOperation/uncollatedFileOperation.C at line 538.
+
+FOAM exiting
+
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 7
+Exec   : decomposePar -force
+Date   : Aug 16 2023
+Time   : 14:57:04
+Host   : "cdr1435.int.cedar.computecanada.ca"
+PID    : 228138
+I/O    : uncollated
+Case   : /scratch/payamghp/cubicBuilding.windDrivenRainFoam_kOmega_overhang12_U2.12
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Removing 0 existing processor directories
+
+
+Decomposing mesh region0
+
+Create mesh
+
+Calculating distribution of cells
+ Foam::decompositionMethod::New 
+{
+    numberOfSubdomains 8;
+    method          simple;
+    simpleCoeffs
+    {
+        n               ( 4 1 2 );
+        delta           0.001;
+    }
+    hierarchicalCoeffs
+    {
+        n               ( 2 3 1 );
+        delta           0.001;
+        order           xyz;
+    }
+    manualCoeffs
+    {
+        dataFile        "cellDecomposition";
+    }
+}
+
+Selecting decompositionMethod simple
+
+Finished decomposition in 6.08 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+
+Processor 0
+    Number of cells = 658084
+    Number of faces shared with processor 1 = 14099
+    Number of faces shared with processor 4 = 5804
+    Number of faces shared with processor 5 = 1
+    Number of processor patches = 3
+    Number of processor faces = 19904
+    Number of boundary faces = 30566
+
+Processor 1
+    Number of cells = 655451
+    Number of faces shared with processor 0 = 14099
+    Number of faces shared with processor 2 = 11260
+    Number of faces shared with processor 5 = 4841
+    Number of processor patches = 3
+    Number of processor faces = 30200
+    Number of boundary faces = 23014
+
+Processor 2
+    Number of cells = 653369
+    Number of faces shared with processor 1 = 11260
+    Number of faces shared with processor 3 = 13852
+    Number of faces shared with processor 5 = 1
+    Number of faces shared with processor 6 = 5258
+    Number of faces shared with processor 7 = 7
+    Number of processor patches = 5
+    Number of processor faces = 30378
+    Number of boundary faces = 21788
+
+Processor 3
+    Number of cells = 647716
+    Number of faces shared with processor 2 = 13852
+    Number of faces shared with processor 7 = 5947
+    Number of processor patches = 2
+    Number of processor faces = 19799
+    Number of boundary faces = 30017
+
+Processor 4
+    Number of cells = 649226
+    Number of faces shared with processor 0 = 5804
+    Number of faces shared with processor 5 = 13915
+    Number of processor patches = 2
+    Number of processor faces = 19719
+    Number of boundary faces = 30283
+
+Processor 5
+    Number of cells = 651859
+    Number of faces shared with processor 0 = 1
+    Number of faces shared with processor 1 = 4841
+    Number of faces shared with processor 2 = 1
+    Number of faces shared with processor 4 = 13915
+    Number of faces shared with processor 6 = 11423
+    Number of processor patches = 5
+    Number of processor faces = 30181
+    Number of boundary faces = 23179
+
+Processor 6
+    Number of cells = 653941
+    Number of faces shared with processor 2 = 5258
+    Number of faces shared with processor 5 = 11423
+    Number of faces shared with processor 7 = 14069
+    Number of processor patches = 3
+    Number of processor faces = 30750
+    Number of boundary faces = 21462
+
+Processor 7
+    Number of cells = 659594
+    Number of faces shared with processor 2 = 7
+    Number of faces shared with processor 3 = 5947
+    Number of faces shared with processor 6 = 14069
+    Number of processor patches = 3
+    Number of processor faces = 20023
+    Number of boundary faces = 30717
+
+Number of processor faces = 100477
+Max number of cells = 659594 (0.9085832741% above average 653655)
+Max number of processor patches = 5 (53.84615385% above average 3.25)
+Max number of faces between processors = 30750 (22.41607532% above average 25119.25)
+
+Time = 0
+
+Processor 0: field transfer
+Processor 1: field transfer
+Processor 2: field transfer
+Processor 3: field transfer
+Processor 4: field transfer
+Processor 5: field transfer
+Processor 6: field transfer
+Processor 7: field transfer
+
+End
+
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 7
+Exec   : /home/payamghp/OpenFOAM/payamghp-7/platforms/linux64GccDPInt32Opt/bin/windDrivenRainFoam -parallel
+Date   : Aug 16 2023
+Time   : 15:03:50
+Host   : "cdr1435.int.cedar.computecanada.ca"
+PID    : 242299
+I/O    : uncollated
+Case   : /scratch/payamghp/cubicBuilding.windDrivenRainFoam_kOmega_overhang12_U2.12
+nProcs : 8
+Slaves : 
+7
+(
+"cdr1435.int.cedar.computecanada.ca.242300"
+"cdr1435.int.cedar.computecanada.ca.242301"
+"cdr1435.int.cedar.computecanada.ca.242302"
+"cdr1435.int.cedar.computecanada.ca.242303"
+"cdr1435.int.cedar.computecanada.ca.242304"
+"cdr1435.int.cedar.computecanada.ca.242305"
+"cdr1435.int.cedar.computecanada.ca.242306"
+)
+
+Pstream initialized with:
+    floatTransfer      : 0
+    nProcsSimpleSum    : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading transportProperties
+
+Reading field U
+
+
+Reading g
+
+SIMPLE: Convergence criteria found
+        "alpha.*": tolerance 1e-05
+        "U.*": tolerance 1e-05
+
+[4] 
+[4] 
+[4] --> FOAM FATAL ERROR: 
+[4] 
+    request for turbulenceModel turbulenceProperties from objectRegistry region0 failed
+    available objects of type turbulenceModel are
+0()
+[4] 
+[4]     From function const Type& Foam::objectRegistry::lookupObject(const Foam::word&) const [with Type = Foam::turbulenceModel]
+[4]     in file /cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/MPI/gcc7.3/openmpi3.1/openfoam/7/OpenFOAM-7/src/OpenFOAM/lnInclude/objectRegistryTemplates.C at line 193.
+[4] 
+FOAM parallel run aborting
+[4] 
+[0] 
+[0] 
+[0] --> FOAM FATAL ERROR: 
+[0] 
+    request for turbulenceModel turbulenceProperties from objectRegistry region0 failed
+    available objects of type turbulenceModel are
+0()
+[0] 
+[0]     From function const Type& Foam::objectRegistry::lookupObject(const Foam::word&) const [with Type = Foam::turbulenceModel]
+[0]     in file /cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/MPI/gcc7.3/openmpi3.1/openfoam/7/OpenFOAM-7/src/OpenFOAM/lnInclude/objectRegistryTemplates.C at line 193.
+[0] 
+FOAM parallel run aborting
+[0] 
+[1] 
+[1] 
+[1] --> FOAM FATAL ERROR: 
+[1] 
+    request for turbulenceModel turbulenceProperties from objectRegistry region0 failed
+    available objects of type turbulenceModel are
+0()
+[3] 
+[3] 
+[3] --> FOAM FATAL ERROR: 
+[3] 
+    request for turbulenceModel turbulenceProperties from objectRegistry region0 failed
+    available objects of type turbulenceModel are
+0()
+[3] 
+[3]     From function const Type& Foam::objectRegistry::lookupObject(const Foam::word&) const [with Type = Foam::turbulenceModel]
+[1] 
+[1]     From function const Type& Foam::objectRegistry::lookupObject(const Foam::word&) const [with Type = Foam::turbulenceModel]
+[1]     in file /cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/MPI/gcc7.3/openmpi3.1/openfoam/7/OpenFOAM-7/src/OpenFOAM/lnInclude/objectRegistryTemplates.C at line 193.
+[1] 
+FOAM parallel run aborting
+[1] 
+[3]     in file /cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/MPI/gcc7.3/openmpi3.1/openfoam/7/OpenFOAM-7/src/OpenFOAM/lnInclude/objectRegistryTemplates.C at line 193.
+[3] 
+FOAM parallel run aborting
+[3] 
+[5] 
+[5] 
+[5] --> FOAM FATAL ERROR: 
+[5] 
+    request for turbulenceModel turbulenceProperties from objectRegistry region0 failed
+    available objects of type turbulenceModel are
+0()
+[5] 
+[6] 
+[6] 
+[6] --> FOAM FATAL ERROR: 
+[6] 
+    request for turbulenceModel turbulenceProperties from objectRegistry region0 failed
+    available objects of type turbulenceModel are
+0()
+[6] 
+[6]     From function const Type& Foam::objectRegistry::lookupObject(const Foam::word&) const [with Type = Foam::turbulenceModel]
+[6]     in file /cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/MPI/gcc7.3/openmpi3.1/openfoam/7/OpenFOAM-7/src/OpenFOAM/lnInclude/objectRegistryTemplates.C at line 193.
+[6] 
+FOAM parallel run aborting
+[6] 
+[7] 
+[7] 
+[7] --> FOAM FATAL ERROR: 
+[7] 
+    request for turbulenceModel turbulenceProperties from objectRegistry region0 failed
+    available objects of type turbulenceModel are
+0()
+[7] 
+[7]     From function const Type& Foam::objectRegistry::lookupObject(const Foam::word&) const [with Type = Foam::turbulenceModel]
+[7]     in file /cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/MPI/gcc7.3/openmpi3.1/openfoam/7/OpenFOAM-7/src/OpenFOAM/lnInclude/objectRegistryTemplates.C at line 193.
+[7] 
+FOAM parallel run aborting
+[7] 
+[5]     From function const Type& Foam::objectRegistry::lookupObject(const Foam::word&) const [with Type = Foam::turbulenceModel]
+[5]     in file /cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/MPI/gcc7.3/openmpi3.1/openfoam/7/OpenFOAM-7/src/OpenFOAM/lnInclude/objectRegistryTemplates.C at line 193.
+[5] 
+FOAM parallel run aborting
+[5] 
+[2] 
+[2] 
+[2] --> FOAM FATAL ERROR: 
+[2] 
+    request for turbulenceModel turbulenceProperties from objectRegistry region0 failed
+    available objects of type turbulenceModel are
+0()
+[2] 
+[2]     From function const Type& Foam::objectRegistry::lookupObject(const Foam::word&) const [with Type = Foam::turbulenceModel]
+[2]     in file /cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/MPI/gcc7.3/openmpi3.1/openfoam/7/OpenFOAM-7/src/OpenFOAM/lnInclude/objectRegistryTemplates.C at line 193.
+[2] 
+FOAM parallel run aborting
+[2] 
+[1] #0  Foam::error::printStack(Foam::Ostream&) at ??:?
+[3] #0  Foam::error::printStack(Foam::Ostream&) at ??:?
+[0] #0  Foam::error::printStack(Foam::Ostream&) at ??:?
+[4] #0  Foam::error::printStack(Foam::Ostream&) at ??:?
+[5] #0  Foam::error::printStack(Foam::Ostream&) at ??:?
+[7] #0  Foam::error::printStack(Foam::Ostream&) at ??:?
+[6] #0  Foam::error::printStack(Foam::Ostream&) at ??:?
+[2] #0  Foam::error::printStack(Foam::Ostream&) at ??:?
+[1] #1  Foam::error::abort() at ??:?
+[3] #1  Foam::error::abort() at ??:?
+[5] #1  Foam::error::abort() at ??:?
+[7] #1  Foam::error::abort() at ??:?
+[0] #1  Foam::error::abort() at ??:?
+[4] #1  Foam::error::abort() at ??:?
+[6] #1  Foam::error::abort() at ??:?
+[2] #1  Foam::error::abort() at ??:?
+[1] #2  Foam::turbulenceModel const& Foam::objectRegistry::lookupObject<Foam::turbulenceModel>(Foam::word const&) const at ??:?
+[3] #2  Foam::turbulenceModel const& Foam::objectRegistry::lookupObject<Foam::turbulenceModel>(Foam::word const&) const at ??:?
+[5] #2  Foam::turbulenceModel const& Foam::objectRegistry::lookupObject<Foam::turbulenceModel>(Foam::word const&) const at ??:?
+[7] #2  Foam::turbulenceModel const& Foam::objectRegistry::lookupObject<Foam::turbulenceModel>(Foam::word const&) const at ??:?
+[4] #2  Foam::turbulenceModel const& Foam::objectRegistry::lookupObject<Foam::turbulenceModel>(Foam::word const&) const at ??:?
+[0] #2  Foam::turbulenceModel const& Foam::objectRegistry::lookupObject<Foam::turbulenceModel>(Foam::word const&) const at ??:?
+[6] #2  Foam::turbulenceModel const& Foam::objectRegistry::lookupObject<Foam::turbulenceModel>(Foam::word const&) const at ??:?
+[2] #2  Foam::turbulenceModel const& Foam::objectRegistry::lookupObject<Foam::turbulenceModel>(Foam::word const&) const at ??:?
+[1] #3  Foam::nutkWallFunctionFvPatchScalarField::nut() const at ??:?
+[3] #3  Foam::nutkWallFunctionFvPatchScalarField::nut() const at ??:?
+[5] #3  Foam::nutkWallFunctionFvPatchScalarField::nut() const at ??:?
+[7] #3  Foam::nutkWallFunctionFvPatchScalarField::nut() const at ??:?
+[0] #3  Foam::nutkWallFunctionFvPatchScalarField::nut() const at ??:?
+[4] #3  Foam::nutkWallFunctionFvPatchScalarField::nut() const at ??:?
+[6] #3  Foam::nutkWallFunctionFvPatchScalarField::nut() const at ??:?
+[2] #3  Foam::nutkWallFunctionFvPatchScalarField::nut() const at ??:?
+[5] #4  Foam::nutWallFunctionFvPatchScalarField::updateCoeffs() at ??:?
+[1] #4  Foam::nutWallFunctionFvPatchScalarField::updateCoeffs() at ??:?
+[3] #4  Foam::nutWallFunctionFvPatchScalarField::updateCoeffs() at ??:?
+[7] #4  Foam::nutWallFunctionFvPatchScalarField::updateCoeffs() at ??:?
+[0] #4  Foam::nutWallFunctionFvPatchScalarField::updateCoeffs() at ??:?
+[4] #4  Foam::nutWallFunctionFvPatchScalarField::updateCoeffs() at ??:?
+[6] #4  Foam::nutWallFunctionFvPatchScalarField::updateCoeffs() at ??:?
+[2] #4  Foam::nutWallFunctionFvPatchScalarField::updateCoeffs() at ??:?
+[3] #5  Foam::fvPatchField<double>::evaluate(Foam::UPstream::commsTypes) at ??:?
+[5] #5  Foam::fvPatchField<double>::evaluate(Foam::UPstream::commsTypes) at ??:?
+[7] #5  Foam::fvPatchField<double>::evaluate(Foam::UPstream::commsTypes) at ??:?
+[1] #5  Foam::fvPatchField<double>::evaluate(Foam::UPstream::commsTypes) at ??:?
+[0] #5  Foam::fvPatchField<double>::evaluate(Foam::UPstream::commsTypes) at ??:?
+[6] #5  Foam::fvPatchField<double>::evaluate(Foam::UPstream::commsTypes) at ??:?
+[4] #5  Foam::fvPatchField<double>::evaluate(Foam::UPstream::commsTypes) at ??:?
+[2] #5  Foam::fvPatchField<double>::evaluate(Foam::UPstream::commsTypes) at ??:?
+[1] #6  Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh>::Boundary::evaluate() at ??:?
+[3] #6  Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh>::Boundary::evaluate() at ??:?
+[7] #6  Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh>::Boundary::evaluate() at ??:?
+[5] #6  Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh>::Boundary::evaluate() at ??:?
+[0] #6  Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh>::Boundary::evaluate() at ??:?
+[4] #6  Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh>::Boundary::evaluate() at ??:?
+[6] #6  Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh>::Boundary::evaluate() at ??:?
+[2] #6  Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh>::Boundary::evaluate() at ??:?
+[1] #7  ? at ??:?
+[3] #7  ? at ??:?
+[5] #7  ? at ??:?
+[7] #7  ? at ??:?
+[0] #7  ? at ??:?
+[6] #7  ? at ??:?
+[4] #7  ? at ??:?
+[2] #7  ? at ??:?
+[1] #8  __libc_start_main in "/cvmfs/soft.computecanada.ca/nix/store/63pk88rnmkzjblpxydvrmskkc8ci7cx6-glibc-2.24/lib/libc.so.6"
+[3] #8  __libc_start_main in "/cvmfs/soft.computecanada.ca/nix/store/63pk88rnmkzjblpxydvrmskkc8ci7cx6-glibc-2.24/lib/libc.so.6"
+[5] #8  __libc_start_main in "/cvmfs/soft.computecanada.ca/nix/store/63pk88rnmkzjblpxydvrmskkc8ci7cx6-glibc-2.24/lib/libc.so.6"
+[7] #8  __libc_start_main in "/cvmfs/soft.computecanada.ca/nix/store/63pk88rnmkzjblpxydvrmskkc8ci7cx6-glibc-2.24/lib/libc.so.6"
+[4] #8  __libc_start_main in "/cvmfs/soft.computecanada.ca/nix/store/63pk88rnmkzjblpxydvrmskkc8ci7cx6-glibc-2.24/lib/libc.so.6"
+[0] #8  __libc_start_main in "/cvmfs/soft.computecanada.ca/nix/store/63pk88rnmkzjblpxydvrmskkc8ci7cx6-glibc-2.24/lib/libc.so.6"
+[6] #8  __libc_start_main in "/cvmfs/soft.computecanada.ca/nix/store/63pk88rnmkzjblpxydvrmskkc8ci7cx6-glibc-2.24/lib/libc.so.6"
+[2] #8  __libc_start_main in "/cvmfs/soft.computecanada.ca/nix/store/63pk88rnmkzjblpxydvrmskkc8ci7cx6-glibc-2.24/lib/libc.so.6"
+[3] #9  ? at /tmp/nix-build-glibc-2.24.drv-0/glibc-2.24/csu/../sysdeps/x86_64/start.S:122
+[7] #9  ? at /tmp/nix-build-glibc-2.24.drv-0/glibc-2.24/csu/../sysdeps/x86_64/start.S:122
+[1] #9  ? at /tmp/nix-build-glibc-2.24.drv-0/glibc-2.24/csu/../sysdeps/x86_64/start.S:122
+[5] #9  ? at /tmp/nix-build-glibc-2.24.drv-0/glibc-2.24/csu/../sysdeps/x86_64/start.S:122
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 1 in communicator MPI COMMUNICATOR 3 SPLIT FROM 0
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 3 in communicator MPI COMMUNICATOR 3 SPLIT FROM 0
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 5 in communicator MPI COMMUNICATOR 3 SPLIT FROM 0
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 7 in communicator MPI COMMUNICATOR 3 SPLIT FROM 0
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+[4] #9  ? at /tmp/nix-build-glibc-2.24.drv-0/glibc-2.24/csu/../sysdeps/x86_64/start.S:122
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 4 in communicator MPI COMMUNICATOR 3 SPLIT FROM 0
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+[0] #9  ? at /tmp/nix-build-glibc-2.24.drv-0/glibc-2.24/csu/../sysdeps/x86_64/start.S:122
+[6] #9  ? at /tmp/nix-build-glibc-2.24.drv-0/glibc-2.24/csu/../sysdeps/x86_64/start.S:122
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI COMMUNICATOR 3 SPLIT FROM 0
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 6 in communicator MPI COMMUNICATOR 3 SPLIT FROM 0
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+[2] #9  ? at /tmp/nix-build-glibc-2.24.drv-0/glibc-2.24/csu/../sysdeps/x86_64/start.S:122
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 2 in communicator MPI COMMUNICATOR 3 SPLIT FROM 0
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+slurmstepd: error: *** STEP 9814030.0 ON cdr1435 CANCELLED AT 2023-08-16T15:04:01 ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+srun: error: cdr1435: tasks 0-7: Killed
+srun: Terminating StepId=9814030.0
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 7
+Exec   : reconstructPar
+Date   : Aug 16 2023
+Time   : 15:04:02
+Host   : "cdr1435.int.cedar.computecanada.ca"
+PID    : 243170
+I/O    : uncollated
+Case   : /scratch/payamghp/cubicBuilding.windDrivenRainFoam_kOmega_overhang12_U2.12
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+--> FOAM Warning : 
+    From function int main(int, char**)
+    in file reconstructPar.C at line 220
+    No times selected
